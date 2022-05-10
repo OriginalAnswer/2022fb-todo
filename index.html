@@ -4,64 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD 파이어베이스 연습</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            border: none;
-            color: #000;
-        }
-        html,body{
-            width: 100%;
-            height: 100%;
-        }
-        body{
-            display: flex;
-            justify-content: center;
-        }
-        input {
-            outline: none;
-        }
-        input[type='number']::-webkit-inner-spin-button,
-        input[type='number']::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-        #card{
-            width: 300px;
-            height: 500px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 5px;
-            background-color: rgb(218, 236, 255);
-            text-align: center;
-            border-radius: 20px;
-        }
-        input,select{
-            width: 200px;
-            margin: 3px 0;
-            border-radius: 50px;
-            text-align: center;
-        }
-        input{
-            height: 50px;
-        }
-        select{
-            height: 30px;
-        }
-        button{
-            padding: 5px;
-            font-weight: bold;
-            background-color: rgb(255, 255, 255);
-            border-radius: 8px;
-            cursor: pointer;
-        }
-    </style>
+    <title>CRUD</title>
+    
 </head>
 <body>
     <div id="card">
@@ -85,8 +29,8 @@
     </div>
 <!-- -------------------------------------------------------------------------------------------------------------->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js";
-        import { getFirestore, doc, setDoc, collection, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+        import { getFirestore, doc, setDoc, collection, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
         
         const firebaseConfig = {
             apiKey: "AIzaSyAOw17wnDhW7Z1bKPB7NxHJfhQf2DG5M68",
