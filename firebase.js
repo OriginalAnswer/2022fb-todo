@@ -22,7 +22,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 
-export const saveTodo = (text) => addDoc(collection(db, 'todo-list'), {text});
-export const getTodo = () => getDocs(collection(db,'todo-list'));
+export const saveTodo = (text, statu, when) => setDoc(doc(db, "todo-list", when), {text,statu,when});
+// export const getTodo = () => getDocs(collection(db,'todo-list'));
 export const onGetTodo = (callback) => onSnapshot(collection(db, 'todo-list'), callback);
 export const deleteTodo = id => deleteDoc(doc(db, 'todo-list', id));
+
+// const todoForm = document.getElementById('todo-form');
+// async function saveTodos(e){
+//     e.preventDefault()
+//     const todoInput = todoForm['todo-input']
+//     const date = new Date();
+//     const y = date.getFullYear();
+//     const m = date.getMonth()+1;
+//     const d = String(date.getDate()).padStart(2,"0");
+//     const hr = String(date.getHours()).padStart(2,"0");
+//     const mn = String(date.getMinutes()).padStart(2,"0");
+//     const sc = String(date.getSeconds()).padStart(2,"0");
+//     let createTime = y+m+d+hr+mn+sc; 
+//     await setDoc(doc(db, "todo-list", createTime), {
+//         text: todoInput.value,
+//         statu: "active",
+//         when:createTime
+//     });
+//     todoForm.reset();
+// }
+// todoForm.addEventListener("submit", saveTodos);
