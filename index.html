@@ -4,116 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD</title>
-    
+    <title>Todo</title>
 </head>
 <body>
-    <div id="card">
-        <h2>Information</h2>
-        <input type="number" id="idNumber-input" placeholder="id number" style="color: #000;">
-        <input type="text" id="name-input" placeholder="name">
-        <input type="number" id="age-input" placeholder="age"> 
-            <select id="gender-input">
-                <option value="male">남성</option>
-                <option value="female">여성</option>
-            </select>
-            <div>
-                <button id="create-btn">등록하기</button>
-                <button id="read-btn">불러오기</button>
-                <button id="update-btn">수정하기</button>
-                <button id="delete-btn">삭제하기</button>
-            </div>
-    </div>
-    <div id="listcard">
+    <div class="title">TODO</div>
 
-    </div>
-<!-- -------------------------------------------------------------------------------------------------------------->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-        import { getFirestore, doc, setDoc, collection, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
-        
-        const firebaseConfig = {
-            apiKey: "AIzaSyAOw17wnDhW7Z1bKPB7NxHJfhQf2DG5M68",
-            authDomain: "todo-list-af9b1.firebaseapp.com",
-            projectId: "todo-list-af9b1",
-            storageBucket: "todo-list-af9b1.appspot.com",
-            messagingSenderId: "640234736270",
-            appId: "1:640234736270:web:82e2cc7713a063ba5557df"
-        };
-            
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-// --------------------------------------------------------------------------------------------------------------//
-        const createBtn = document.getElementById('create-btn');
-        const readBtn = document.getElementById('read-btn');
-        const updateBtn = document.getElementById('update-btn');
-        const deleteBtn = document.getElementById('delete-btn');
+    <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="Create a todo list...">
 
-        let idNumber = document.getElementById('idNumber-input');
-        let name = document.getElementById('name-input');
-        let age = document.getElementById('age-input');
-        let gender = document.  getElementById('gender-input');
-// --------------------------------------------------------------------------------------------------------------//
-        async function createInfo(){
-            try {
-                await setDoc(doc(db, "Member List", idNumber.value), {
-                    name: name.value,
-                    age: age.value,
-                    gender: gender.value
-                })
-                alert(name.value + "님이 등록되었습니다.");
-                window.location.reload();
-            } catch (e) {
-                alert("등록에 실패하였습니다");
-                window.location.reload();
-            }
-        }
-                
-        createBtn.addEventListener("click", createInfo);
-// --------------------------------------------------------------------------------------------------------------//
-        async function readInfo(){
-            // const docRef = doc(db, "Member List", idNumber.value);
-            const docSnap = await getDoc(doc(db, "Member List", idNumber.value));
-            
-            if (docSnap.exists()) {
-                name.value = docSnap.data().name;
-                age.value = docSnap.data().age;
-                gender.value = docSnap.data().gender;
-                alert(idNumber.value + "번의 정보를 불러왔습니다");
-            } else {
-                alert("없는 번호입니다!");
-            }
-        }        
-        readBtn.addEventListener("click", readInfo);
-// --------------------------------------------------------------------------------------------------------------//
-        async function updateInfo(){
-            try {
-                await setDoc(doc(db, "Member List", idNumber.value), {
-                    name: name.value,
-                    age: age.value,
-                    gender: gender.value
-                })
-                alert(name.value + "님의 정보가 수정되었습니다.");
-                window.location.reload();
-            } catch (e) {
-                alert("실패하였습니다");
-                window.location.reload();
-            }
-        }
-        updateBtn.addEventListener("click", updateInfo);
-// --------------------------------------------------------------------------------------------------------------//
-        async function deleteInfo(){
-            const docSnap = await getDoc(doc(db, "Member List", idNumber.value));
-            if (docSnap.exists())  {
-                await deleteDoc(doc(db, "Member List", idNumber.value));
-                alert(idNumber.value + "번의 정보를 삭제했습니다.");
-            } else {
-                alert("삭제에 실패하였습니다. : 존재하지 않는 번호입니다.");
-                window.location.reload();
-            }
-        }
-        deleteBtn.addEventListener("click", deleteInfo);
+        <button id="btn-todo-save">save</button>
+    </form>
 
-    </script>
+    <div id="print-view"></div>
+
+<!-- ------------------------------------------------------------------------------------------------- -->
+    <script type="module" src="/index.js"></script>
+    <script type="module" src="/firebase.js"></script>
 </body>
 </html>
