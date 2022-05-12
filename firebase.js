@@ -2,9 +2,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase
 import {
     getFirestore,
     collection,
-    addDoc,
+    // addDoc,
     setDoc,
-    getDocs,
+    // getDocs,
     onSnapshot,
     deleteDoc,
     doc
