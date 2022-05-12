@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         querySnapshot.forEach(doc => {
             const todoInfo = doc.data();
             html += `
-                <div>
+                <div class="single-todo-container">
                 <span>${todoInfo.text}</span>
                 <button class="delete-btn" data-id="${doc.id}">Delete</button>
                 </div>
