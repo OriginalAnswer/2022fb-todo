@@ -55,7 +55,6 @@ button{
 }
 .title{
     width: 100%;
-    text-align: ;
     font-weight: bold;
     background-color: var(--bg-clr-main);
     padding: .5em .5em .5em .2em;
