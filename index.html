@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Todo</title>
 </head>
 <body>
-    <div class="title">할 일 목록</div>
+    <h1 class="title">&lt;To Do List&gt;</h1>
 
     <form id="todo-form">
         <div id="todo-input-container">
-            <input type="text" id="todo-input" placeholder="Create a todo list..." required>
-            <button id="btn-todo-save">save</button>
+            <input type="text" id="todo-input" placeholder="Create a new todo list..." required>
+            <i class="fas fa-arrow-down"id="btn-todo-save"></i>
         </div>
     </form>
 
@@ -22,6 +23,7 @@
 <!-- ------------------------------------------------------------------------------------------------- -->
     <script type="module" src="/index.js"></script>
     <script type="module" src="/firebase.js"></script>
+    <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
 </body>
 </html>
 
